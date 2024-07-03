@@ -10,7 +10,6 @@ import {
 import { Stack, useRouter } from "expo-router";
 import { COLORS, SIZES, icons } from "../constants";
 import postsData from "../data/postsData";
-import Icon from "react-native-vector-icons/FontAwesome"; // Assurez-vous d'importer la bibliothèque d'icônes
 
 const PostItem = ({ post, onEdit, onDelete }) => (
   <View
@@ -59,7 +58,6 @@ const PostItem = ({ post, onEdit, onDelete }) => (
           borderRadius: SIZES.small,
         }}
       >
-        <Icon name="trash" size={20} color={COLORS.white} />
         <Text style={{ color: COLORS.primary, marginLeft: SIZES.small }}>
           Delete
         </Text>

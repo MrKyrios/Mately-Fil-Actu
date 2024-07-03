@@ -1,24 +1,28 @@
 import React, { useState } from "react";
-import {
-  View,
-  TextInput,
-  Button,
-  Text,
-  Image,
-  TouchableOpacity,
-  SafeAreaView,
-} from "react-native";
+import { TextInput, Button, Text, SafeAreaView } from "react-native";
 import { COLORS, SIZES } from "../constants";
+import postsData from "../data/postsData";
 
-const CreatePost = ({ navigation }) => {
+const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [message, setMessage] = useState("");
+  const [allPosts, setAllPosts] = useState(postsData);
 
   const handleSubmit = () => {
     console.log("Titre:", title);
     console.log("Message:", message);
 
-    navigation.goBack();
+    const newPost = {
+      id: Date.now().toString(),
+      title: title,
+      message: message,
+      image: require("../assets/images/placeholder.png"),
+    };
+
+    setAllPosts((prevPosts) => [...prevPosts, newPost]);
+
+    setTitle("");
+    setMessage("");
   };
 
   return (
